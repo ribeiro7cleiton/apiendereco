@@ -1,0 +1,79 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ENDERECO",
+    "description": "API responsável por enviar os registros de códigos de barras endereçados"
+  },
+  "host": "svapps:3335",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "sopasta_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://svapps:3333/login",
+      "flow": "implicit"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [],
+        "description": "Apresentanção da API.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/deletegrupo": {
+      "post": {
+        "tags": [],
+        "description": "Envio de registros de inventário para a tabela USU_TContagem da base Apontamentos da Sopasta.",
+        "parameters": [
+          {
+            "name": "codemp",
+            "description": "Código da Empresa.",
+            "type": "number",
+            "required": true,
+            "in": "body",
+            "example": 1
+          },
+          {
+            "name": "codfil",
+            "description": "Código da Filial.",
+            "type": "number",
+            "required": true,
+            "in": "body",
+            "example": 1
+          },
+          {
+            "name": "codori",
+            "description": "Código da origem do produto.",
+            "type": "string",
+            "required": true,
+            "in": "body",
+            "example": "BOB"
+          },
+          {
+            "name": "codbar",
+            "description": "Código de Barras do produto.",
+            "type": "string",
+            "required": true,
+            "in": "body",
+            "example": "MN120304020215487XYZ"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}
